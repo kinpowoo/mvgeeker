@@ -1,0 +1,18 @@
+用户  2018-07-29 14:24:39
+<xml><ToUserName><![CDATA[gh_85a1bbd26e57]]></ToUserName>
+<FromUserName><![CDATA[ov76WwLelJ4NfXSRPzhe_JgJJaz8]]></FromUserName>
+<CreateTime>1532845547</CreateTime>
+<MsgType><![CDATA[text]]></MsgType>
+<Content><![CDATA[Nui]]></Content>
+<MsgId>6583521494606938534</MsgId>
+</xml>
+公众号  2018-07-29 14:24:39
+<xml>
+    <ToUserName><![CDATA[ov76WwLelJ4NfXSRPzhe_JgJJaz8]]></ToUserName>
+    <FromUserName><![CDATA[gh_85a1bbd26e57]]></FromUserName>
+    <CreateTime><![CDATA[1532845479]]></CreateTime>
+    <MsgType><![CDATA[text]]></MsgType>
+    <Content><![CDATA[可用带有mv:和mu:指令来请求电影和音乐资源,
+ 如: mv:绣春刀 , mu:丑八怪|页数]]></Content>
+    </xml>
+

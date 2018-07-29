@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>JavaScript RSA Encryption Demo</title>
+  </head>
+ 
+<script language="JavaScript" type="text/javascript" src="./js/jsbn.js"></script>
+<script language="JavaScript" type="text/javascript" src="./js/prng4.js"></script>
+<script language="JavaScript" type="text/javascript" src="./js/rng.js"></script>
+<script language="JavaScript" type="text/javascript" src="./js/rsa.js"></script>
+<script language="JavaScript" type="text/javascript" src="./js/base64.js"></script>
+<script language="JavaScript"> 
+//publc key  and public length 16 binary data
+var public_key="00b0c2732193eebde5b2e278736a22977a5ee1bb99bea18c0681ad97484b4c7f681e963348eb80667b954534293b0a6cbe2f9651fc98c9ee833f343e719c97c670ead8bec704282f94d9873e083cfd41554f356f00aea38d2b07551733541b64790c2c8f400486fd662a3e95fd5edd2acf4d59ca97fad65cc59b8d10cbc5430c53";
+var public_length="10001";
+function do_encrypt() {
+  var before = new Date();
+  var rsa = new RSAKey();
+  rsa.setPublic(public_key, public_length);
+  var res = rsa.encrypt(document.rsatest.plaintext.value);
+  var after = new Date();
+  if(res) {
+    document.rsatest.ciphertext.value =res;
+    document.rsatest.cipherb64.value = hex2b64(res);
+    document.rsatest.status.value = "Time: " + (after - before) + "ms";
+  }
+}
+
+//-->
+</script>
+ 
+<form name="rsatest" action="rsa-example.php" method="post">
+Plaintext (string):<br>
+<input name="plaintext" type="text" value="test" size=40>
+<input type="button" value="encrypt" onClick="do_encrypt();"><p>
+Ciphertext (hex):<br>
+<textarea name="ciphertext" rows=4 cols=70></textarea><p>
+Ciphertext (base64):(Not used)<br>
+<textarea name="cipherb64" rows=3 cols=70></textarea><p>
+Status:<br>
+<input name="status" type="text" size=40><p>
+<input type="submit" value="go php" />
+</form>
+  </body>
+</html>
+

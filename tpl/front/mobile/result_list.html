@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<center>
+<div style="margin-bottom:1%;">
+<h1><a href="index.php">mvgeeker</a></h1><title>影视剧管理系统</title>
+<table>
+    <form action="index.php?controller=curl&method=resultlist" method="POST">
+    <input type="hidden" name="from" value='m' />
+    <input type="hidden" name="pagenum" value="1">
+    <input type="hidden" name="t" value="s" />    
+    <tr>
+        <td><span style="font-size: 14px;margin-right: 3px;">影视名:<span></td>
+        <td><input type="text" name="keyword" value="{$keyword|default:''}" /> </td>
+        <td><input type="submit" value="提交" /></td>
+    </tr>
+    </form>
+</table>
+<hr>
+</div>
+</center>
+
+<link href="{$ROOT_DIR}img/css/default.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<!-- start page -->
+<div class="page">
+
+    <!-- start content -->
+  <div>
+  <center>
+    <div class="tb" style="width:90%;">
+    <table class="tb" border="1" cellpadding="0" cellspacing="0" style="width:72%;">
+        <thead>
+        <tr class="source_show">
+            <td style="width:45%;color: #A0522D;">电影名</td>
+            <td style="width:20%;color: #A0522D;">类型</td>
+            <td style="width:35%;color: #A0522D;">发布时间</td>
+        </tr>
+        </thead>
+        <tbody>
+        {foreach $data as $value} 
+            <tr class="source_show">
+            <td style="color: #7AD000;"><a href='index.php?controller=curl&method=resultlink&target={$value.url|escape:"url"}&name={$value.title|escape:"url"}&from={$value.source}'>{$value.title}</a></td>
+            <td style="color: #7AD000;">{$value.type}</td>
+            <td style="color: #7AD000;">{$value.publishTime}</td>
+            </tr>
+        {foreachelse}
+        <tr>
+            <td  style="color: #7AD000;" colspan=3>
+                没有搜索到数据
+            </td>
+        </tr>
+    {/foreach}
+    </tbody>
+    </table>
+    </div>
+    </center>
+    <?php } ?>
+</div>
+</div>
+
+<!--翻页查询起始处-->
+{include file='{$ROOT_DIR}tpl/front/common/result_slip_page.html'}
+
+</body>
+</html>

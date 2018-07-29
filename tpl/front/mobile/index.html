@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="{$ROOT_DIR}img/css/default.css" rel="stylesheet" type="text/css" />
+    <title>Movie Search</title>
+
+    <center style="color:#4682B4;padding: 5px;">
+       <h2 >迅雷链接在线搜索</h2>
+    </center>
+    <hr>
+
+</head>
+<body>
+
+
+
+
+<center>
+<div>
+    <table style="width:10%;">
+    <form action="index.php?controller=curl&method=resultlist" method="POST">
+    	<input type="hidden" name="from" value='m' />
+        <input type="hidden" name="pagenum" value="1">
+        <input type="hidden" name="t" value="s" />
+        <tr>
+        	<td style="color:#4682B4;">电影名/电视剧名</td>
+        </tr>
+        <tr>
+            <td ><input type="text" name="keyword"/></td>
+            <td colspan="2" style="height:33px;width:20%;"><input type="submit" value="点击搜索"/></td>
+        </tr>
+         <tr>
+            <td><a style="margin-right: 20px;color:#4682B4;" href="index.php?controller=source&method=postlist&t=s&from=m&pagenum=1">查看资源</a></td>
+        </tr>
+    </form>
+    </table>
+    </div> 
+
+</center>
+
+<center>
+    <div style="margin-top:20px;width:17%;">  
+        <p style="color: #CD3700;">热搜：
+        {foreach $data as $value}    
+           <a href="index.php?controller=source&method=getitem&column={$value['name']}&t=r">{$value['name']}</a>&nbsp&nbsp&nbsp
+        {/foreach}
+       </p>
+    </div>
+</center>
+
+
+
+</body>
+
+</html>
+

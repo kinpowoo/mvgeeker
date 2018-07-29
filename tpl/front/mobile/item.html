@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>影视剧管理系统</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+{include file='{$ROOT_DIR}tpl/front/common/m_post_header.html'}
+
+</head>
+
+
+<body>
+<!-- start page -->
+<div class="page">
+	<!-- start content -->
+	{if $data != null}
+		<div class="post">
+			<p style="color:#FF6347;">{$data.name}
+			<div style="margin-bottom: 15px;">
+			<p style="color:#A52A2A;font-size:15px;">发布时间：{$data.publishTime}</p>
+			<p style="color:#A52A2A;font-size:15px;">文件大小：{$data.size}</p>
+			</div>
+			</p>
+			<div style="width:100%;">
+			<p style="color:#A0522D;font-size: 17px;width:80%;">百度云链接地址：{$data.cloud}</p>
+			<p style="color:#A0522D;font-size: 17px;width:80%;">迅雷磁力链接地址：{$data.magnet}</p>
+			</div>
+            <div><img src="{$data.pic1}"/></div>
+            <div><img src="{$data.pic2}"/></div>
+            <div><img src="{$data.pic3}"/></div>
+            <div class="entry" style="margin-top: 40px;">
+				<!--文章内容放置到这里-->
+			    <text style="color:#A0522D;font-size: 15px;">{$data.description}</text>
+			</div>
+	</div>
+    {else}
+    	<p>末找到该条目</p>
+    {/if}
+</div>
+
+</body>
+</html>

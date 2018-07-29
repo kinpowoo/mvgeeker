@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>影视剧管理系统</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="{$ROOT_DIR}img/css/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+<!-- start header -->
+<div id="header">
+	<div id="logo">
+		<h1><a href="index.php?controller=index&method=index">MVGeeker</a></h1>
+		<h2></h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="active"><a href="index.php?controller=source&method=postlist&t=s">资源</a></li>
+			<li><a href="request.php">请求资源</a></li>
+			<li><a href="index.php?controller=admin&method=sourceadd&t=s">发布资源</a></li>
+		</ul>
+	</div>
+</div>
+<!-- end header -->
+</div>
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+
+		{foreach $data as $value}
+		<div class="post">
+			<h1 class="title">{$value.name}</h1>
+			<div style="margin-bottom: 15px;">
+			<span style="color:#A52A2A;font-size:14px;">发布时间:{$value.publishTime}</span>
+            </div>
+			</h1>
+			<div style="color:#A0522D;margin-bottom: 10px;" class="entry">
+				{$value.description}
+			</div>
+			<div class="meta">
+				<p class="links"><a href="index.php?controller=source&method=getitem&t=s&id={$value.id}&from=" class="more">查看详细</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;</p>
+			</div>
+		</div>
+     {foreachelse}
+            <span style="color:#B23AEE"> 资源列表为空</span>  
+     {/foreach}
+
+ 
+  {include file='{$ROOT_DIR}tpl/front/common/post_slip_page.html'}
+	</div>
+    
+	<!-- end content -->
+	<!-- start sidebar -->
+	   <div id="sidebar">
+        <ul>
+            <li id="search">
+                <h2><b class="text1">搜索关键字</b></h2>
+                <form method="get" action="index.php">
+                    
+                    <input type='hidden' name="controller" value='source'/>
+                    <input type="hidden" name="method" value="getitem" />
+                    <input type="hidden" name="t" value="s" />    
+                    <input type="text" id="s" name="column" value="" />
+                    <input type="submit" id="x" value="Search" />
+                   
+                </form>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+
+</body>
+</html>

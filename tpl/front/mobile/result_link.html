@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="img/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="img/js/jquery.zeroclipboard.min.js"></script>
+<div style="margin-bottom:1%;">
+<center>
+<h1><a href="index.php">mvgeeker</a>
+</center>
+</h1><title>影视剧管理系统</title>
+</div>
+<hr>
+<link href="default.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    function copy(id){
+    var clip = new ZeroClipboard( document.getElementById(id) );
+    }
+</script>
+</head>
+<body>
+   <div> 
+    <center>
+        {section name='item' loop=$data}
+ 
+           <div class="tb">
+            <p style="color:#A52A2A;width: 40%">{$data[item].title}的资源链接：
+            <input type="button" id="copy{$smarty.section.item.index}" onclick="copy(this.id)" data-clipboard-target="magnet{$smarty.section.item.index}" value="点击复制"></p>
+            <textarea cols="45" id="magnet{$smarty.section.item.index}" minlength="4" rows="5" readonly="true">{$data[item].url}</textarea>
+            <br/><br/>
+            </div>
+        {sectionelse}
+            <span style="color:#B23AEE"> 该条目没有资源</span>
+        {/section}
+
+    </center>
+ </div>
+
+
+
+</body>
+</html>

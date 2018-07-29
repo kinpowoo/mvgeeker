@@ -1,0 +1,8 @@
+<center>
+<div>
+<a href='index.php?controller=curl&method=resultlist&keyword={$keyword|escape:"url"}&pagenum=1'>首页</a>
+<a href='index.php?controller=curl&method=resultlist&keyword={$keyword|escape:"url"}&pagenum={if $pagenum eq 1}1{else}{$pagenum-1}{/if}'>上一页</a>
+<a href='index.php?controller=curl&method=resultlist&keyword={$keyword|escape:"url"}&pagenum={$pagenum+1}'>下一页</a>
+</div>
+</center>
+

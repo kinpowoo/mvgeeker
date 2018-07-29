@@ -1,0 +1,78 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Search Result</title>
+        <script src="/img/js/AES.js"></script>
+        <script src="/img/js/sha256.js"></script>
+        <script src="/img/js/Base64.js"></script>
+        <script src="/img/js/encrypt.js"></script>
+        <script src="/img/js/BigInt.js"></script>
+        <script src="/img/js/Barrett.js"></script>
+        <script src="/img/js/RSA.js"></script>
+        <script src="/img/js/core-min.js"></script>
+        <script src="/img/js/cipher-core-min.js"></script>  
+        <script src="/img/js/mode-ecb-min.js"></script>  
+        <script src="/img/js/aes-min.js"></script>  
+        <script src="/img/js/gen-params.js"></script>  
+
+        <center style="color:#4682B4;padding: 5px;">
+        <h2 >歌曲下载链接生成</h2>
+        <a href="index.php">回到首页</a>
+        </center>
+        <hr>
+    </head>
+
+ <body style="background-color:#ffe000;">
+ 
+<center>
+<div style="width:460px;">
+
+    <table style="font-size: 24px;">
+            <tr>
+              <td style="color:#4682B4;">歌名</td>
+              <td><input type="text" name="" id="keyword"/></td>
+              <td style="height:50px;width:69px;"><input type="button" value="搜 索" onclick="javascript:encrypt()"/></td>
+            </tr>
+   </table>
+   </div>
+   <div id="param3"></div>
+</center>
+
+   <center>
+    <table border="1" style="background-color:#fff000;"> 
+        <tr>
+            <td style="width:80px;text-align:center;">封面</td>
+            <td style="width:240px;text-align:center;">歌名</td>
+            <td style="width:120px;text-align:center;">歌手</td>
+            <td style="width:300px;text-align:center;">专辑名称</td>
+            <td style="width:140px;text-align:center;">发行日期</td>
+            <td style="width:60px;text-align:center;">进入</td>
+        <tr>
+		{if isset($data)}
+            {foreach $data as $value} 
+            <tr>
+                <td><img style="width:80px;height:80px;" src="{$value->al->picUrl}"/></td>
+                <td style="width:240px;text-align:center;">{$value->name}</td>
+                <td style="width:120px;text-align:center;">{$value->ar[0]->name}</td>
+                <td style="width:300px;word-break:break-all;text-align:center;">{$value->al->name}</td>
+                <td style="width:140px;text-align:center;">{date("Y-m-d",$value->pulishTime)}</td>
+                <td style="width:140px;text-align:center;">
+                    <span style="text-decoration: underline;cursor: pointer;" onclick="javascript:getsong({$value->id});">下载</span>
+                </td>
+            </tr>
+			{/foreach}
+		{/if}
+       
+     </table>
+
+     <div>
+        <span style="text-decoration: underline;cursor: pointer;" onclick="javascript:encrypt(1,'{$keyword}');">首页</span>
+        <span style="text-decoration: underline;cursor: pointer;" onclick="javascript:encrypt({$page-1},'{$keyword}');">上一页</span>
+        <span style="text-decoration: underline;cursor: pointer;" onclick="javascript:encrypt({$page+1},'{$keyword}');">下一页</span>
+    </div>
+</center>
+</body>
+</html> 

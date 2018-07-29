@@ -1,0 +1,27 @@
+<center>
+    <div>
+    <a href='index.php?controller=source&method=postlist&t=s&pagenum=1'>首页</a>
+    <a href='index.php?controller=source&method=postlist&t=s&pagenum={if $pagenum eq 1}1{else}{$pagenum-1}{/if}'>上一页</a>
+    <input style="width:50px" type='text' id='target_num' /><input type="button" onclick="javascript:goto({$endpage});" value="跳页"></input>
+
+    <a href='index.php?controller=source&method=postlist&t=s&pagenum={if $pagenum eq  $endpage}{$endpage}{else}{$pagenum+1}{/if}'>下一页</a>
+    <a href='index.php?controller=source&method=postlist&t=s&pagenum={$endpage}'>尾页</a>
+    </div>
+
+    <div style="color:#4682B4;margin-top: 15px;"> 一共{$endpage}页<span style="margin-left:20px;">当前页{ {$pagenum} }</span></div>
+</center>
+
+<script type="text/javascript">
+    
+    function goto(a){
+      var target_page = document.getElementById('target_num').value;
+      if(target_page>a){
+          target_page = a;
+       }
+       if(target_page<1){
+          target_page = 1;
+       }
+       window.location.href="index.php?controller=source&method=postlist&t=s&pagenum="+target_page;
+    }
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />  
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>影视剧管理系统</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+{include file='{$ROOT_DIR}tpl/front/common/m_post_header.html'}
+
+</head>
+
+<body>
+<center>
+<!-- start page -->
+<div style="width: 90%;">
+	<!-- start content -->
+	
+	{foreach $data as $value}
+	
+		<div class="post">
+			<p style="color:#FF6347;">{$value.name}
+			<div style="margin-bottom: 15px;">
+			<span style="color:#A52A2A;font-size:14px;">发布时间:{$value.publishTime}</span>
+            </div>
+			</p>
+			<div class="meta">
+				<p class="links"><a href="index.php?controller=source&method=getitem&t=s&from=m&id={$value.id}" class="more">查看详细</a>&nbsp;&nbsp;&raquo;&nbsp;&nbsp;</p>
+			</div>
+			<hr>
+		</div>
+    {foreachelse}
+        <span style="color:#B23AEE">资源列表为空</span>
+    {/foreach}    
+</div>
+</center>
+
+{include file='{$ROOT_DIR}tpl/front/common/post_slip_page.html'}
+
+</body>
+</html>
