@@ -1,9 +1,10 @@
 <?php 
 header("content-type:text/html;charset=utf-8");
-$page = $_GET["page"];
-
-if(empty($page)){
-	$page =1;
+$page;
+if(isset($_GET['page'])){
+	$page = $_GET["page"];
+}else{
+	$page = 1;
 }
 
 
@@ -16,16 +17,21 @@ $photos =  more_photo($page);
 				$headers = array(
 					'Host:gank.io',
 					'Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+					'Accept-Encoding:gzip, deflate, br',
+					'DNT:1',
 					'Accept-Language:zh-CN,zh;q=0.8',
 					'Cache-Control:max-age=0',
 					'Proxy-Connection:keep-alive',
+					'Upgrade-Insecure-Requests:1',
 					'User-Agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
 				);
-				$url = 'http://gank.io/api/data/%E7%A6%8F%E5%88%A9/50/'.$page;
+				$url = 'https://gank.io/api/data/%E7%A6%8F%E5%88%A9/50/'.$page;
 				
                 $ch = curl_init($url);
-				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+				//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);  //返回数据不直接输出
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//绕过ssl验证
+				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 				curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 				$data = curl_exec($ch);
 	
