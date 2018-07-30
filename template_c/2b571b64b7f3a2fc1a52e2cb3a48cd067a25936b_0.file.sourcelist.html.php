@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-07-30 13:58:22
+/* Smarty version 3.1.30, created on 2018-07-30 14:43:02
   from "C:\xampp\htdocs\tpl\back\sourcelist.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b5ea8fed85313_89342421',
+  'unifunc' => 'content_5b5eb37688fc31_75585081',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b571b64b7f3a2fc1a52e2cb3a48cd067a25936b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpl\\back\\sourcelist.html',
-      1 => 1532920113,
+      1 => 1532932975,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./leftmenu.html' => 1,
   ),
 ),false)) {
-function content_5b5ea8fed85313_89342421 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5eb37688fc31_75585081 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -124,7 +124,7 @@ function content_5b5ea8fed85313_89342421 (Smarty_Internal_Template $_smarty_tpl)
 						<tr>  
 			    				<th>ID</th>
 			    				<th>标题</th>
-			    				<th>作者</th>
+			    				<th>日期/链接</th>
 			    				<th>操作</th>
 						</tr> 
 					</thead>
@@ -143,8 +143,11 @@ echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
 echo $_smarty_tpl->tpl_vars['value']->value['name'];?>
  <?php }?></td> 
 			    				<td><?php if (isset($_smarty_tpl->tpl_vars['value']->value['publishTime'])) {
-echo $_smarty_tpl->tpl_vars['value']->value['publishTime'];?>
- <?php }?></td> 
+echo $_smarty_tpl->tpl_vars['value']->value['publishTime'];
+} else {
+if (isset($_smarty_tpl->tpl_vars['value']->value['cloud'])) {
+echo $_smarty_tpl->tpl_vars['value']->value['cloud'];
+} else { ?>""<?php }?> <?php }?></td> 
 			    				<td><input type="image" src="img/images/icn_edit.png" title="Edit" onclick="window.location.href='admin.php?controller=admin&method=sourceadd&t=s&id=<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
 '"><input type="image" src="img/images/icn_trash.png" title="Trash" onclick="window.location.href='admin.php?controller=admin&method=sourcedel&t=s&id=<?php echo $_smarty_tpl->tpl_vars['value']->value['id'];?>
 '"></td>
