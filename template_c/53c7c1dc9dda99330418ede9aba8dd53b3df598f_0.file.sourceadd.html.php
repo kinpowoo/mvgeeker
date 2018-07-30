@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-07-30 14:05:53
+/* Smarty version 3.1.30, created on 2018-07-30 14:17:23
   from "C:\xampp\htdocs\tpl\back\sourceadd.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b5eaac14d4a75_57117442',
+  'unifunc' => 'content_5b5ead7307b541_00276503',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53c7c1dc9dda99330418ede9aba8dd53b3df598f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpl\\back\\sourceadd.html',
-      1 => 1532930751,
+      1 => 1532931437,
       2 => 'file',
     ),
   ),
@@ -21,8 +21,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./leftmenu.html' => 1,
   ),
 ),false)) {
-function content_5b5eaac14d4a75_57117442 (Smarty_Internal_Template $_smarty_tpl) {
-?>
+function content_5b5ead7307b541_00276503 (Smarty_Internal_Template $_smarty_tpl) {
+echo '<?php
+	';?>date_default_timezone_set("Asia/Shanghai");
+<?php echo '?>';?>
+
 <!doctype html>
 <html>
 <head>

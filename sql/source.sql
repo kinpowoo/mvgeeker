@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `source`;
 CREATE TABLE `source` (
   `id` int(255) unsigned NOT NULL AUTO_INCREMENT,
   `name` varbinary(60) DEFAULT NULL,
-  `cloud` varbinary(60) DEFAULT NULL,
+  `cloud` varbinary(200) DEFAULT NULL,
   `magnet` varbinary(500) DEFAULT NULL,
   `size` varbinary(20) DEFAULT NULL,
   `publishTime` datetime DEFAULT NULL,

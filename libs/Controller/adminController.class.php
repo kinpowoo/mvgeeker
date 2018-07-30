@@ -1,5 +1,6 @@
 <?php 
-
+	date_default_timezone_set("Asia/Shanghai");
+	
     class adminController{
 
         public $auth = "";
@@ -202,8 +203,8 @@
             $table = T($_GET['t']);
 
             $params = 'TABLE_'.$table.'_COLUMN';
-            $where = "author='".$this->auth['username']."'";
-
+		
+			$where = "1=1";
             $sourceobj->findAllByPage($pagenum,$table,unserialize(constant($params)),$where);
          
             if($table=='SOURCE'){

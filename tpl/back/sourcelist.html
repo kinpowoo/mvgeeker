@@ -82,7 +82,7 @@
 						<tr>  
 			    				<th>ID</th>
 			    				<th>标题</th>
-			    				<th>作者</th>
+			    				<th>日期/链接</th>
 			    				<th>操作</th>
 						</tr> 
 					</thead>
@@ -92,7 +92,7 @@
 						<tr>
 			    				<td>{if isset($value.id)}{$value.id} {/if}</td> 
 			    				<td>{if isset($value.name)}{$value.name} {/if}</td> 
-			    				<td>{if isset($value.publishTime)}{$value.publishTime} {/if}</td> 
+			    				<td>{if isset($value.publishTime)}{$value.publishTime}{else}{$value.cloud} {/if}</td> 
 			    				<td><input type="image" src="img/images/icn_edit.png" title="Edit" onclick="window.location.href='admin.php?controller=admin&method=sourceadd&t=s&id={$value.id}'"><input type="image" src="img/images/icn_trash.png" title="Trash" onclick="window.location.href='admin.php?controller=admin&method=sourcedel&t=s&id={$value.id}'"></td>
 						</tr>		
 					{/foreach}
