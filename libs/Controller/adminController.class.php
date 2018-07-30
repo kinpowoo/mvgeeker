@@ -193,7 +193,12 @@
         public function sourcelist(){
             
             $sourceobj = M('source');
-            $pagenum = $_GET['pagenum'];
+            $pagenum;
+			if(isset($_GET['pagenum'])){
+				$pagenum = $_GET['pagenum'];
+			}else{
+				$pagenum = 0 ;
+			}
             $table = T($_GET['t']);
 
             $params = 'TABLE_'.$table.'_COLUMN';

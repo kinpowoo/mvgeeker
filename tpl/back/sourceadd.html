@@ -89,7 +89,7 @@
 							</fieldset>
 							<fieldset style="width:48%; float:left; margin-right: 3%;">
 								<label>发布日期</label>
-								<input type="text" name="publishTime" style="width:92%;" value="{$data.publishTime|default:'1970-01-01 00:00:00'}">
+								<input type="text" name="publishTime" style="width:92%;" value="{$data.publishTime|default:date("Y-m-d h:m:s")}">
 							</fieldset>
 							<fieldset style="width:48%; float:left;">
 								<label>文件大小</label>
