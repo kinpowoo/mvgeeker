@@ -24,7 +24,12 @@
       	  $(".tablesorter").tablesorter(); 
    	 } 
 	);
-	$(document).ready(function() {
+	function addRequest(){
+	};
+	
+	$("#sub_btn").click(function() {
+		$("#sub_btn").attr("disabled","true");
+	});
 
 	//When page loads...
 	$(".tab_content").hide(); //Hide all content
@@ -107,7 +112,7 @@
 						<input type="hidden" name="id" value="{$data.id|default:''}">
 
 						<input type="hidden" name="t" value="r">
-						<input type="submit" name="submit" value="发布" class="alt_btn">
+						<input type="submit" id="sub_btn" name="submit" value="发布" class="alt_btn">
 					</div>
 				</footer>
 			</article>

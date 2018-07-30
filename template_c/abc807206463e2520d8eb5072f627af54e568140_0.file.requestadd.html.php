@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-07-30 14:02:01
+/* Smarty version 3.1.30, created on 2018-07-30 16:20:31
   from "C:\xampp\htdocs\tpl\back\requestadd.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b5ea9d9a5e702_84961043',
+  'unifunc' => 'content_5b5eca4f69bfb2_44902434',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'abc807206463e2520d8eb5072f627af54e568140' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpl\\back\\requestadd.html',
-      1 => 1532920113,
+      1 => 1532938827,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./leftmenu.html' => 1,
   ),
 ),false)) {
-function content_5b5ea9d9a5e702_84961043 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5eca4f69bfb2_44902434 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html>
@@ -60,7 +60,12 @@ function content_5b5ea9d9a5e702_84961043 (Smarty_Internal_Template $_smarty_tpl)
       	  $(".tablesorter").tablesorter(); 
    	 } 
 	);
-	$(document).ready(function() {
+	function addRequest(){
+	};
+	
+	$("#sub_btn").click(function() {
+		$("#sub_btn").attr("disabled","true");
+	});
 
 	//When page loads...
 	$(".tab_content").hide(); //Hide all content
@@ -150,7 +155,7 @@ function content_5b5ea9d9a5e702_84961043 (Smarty_Internal_Template $_smarty_tpl)
 ">
 
 						<input type="hidden" name="t" value="r">
-						<input type="submit" name="submit" value="发布" class="alt_btn">
+						<input type="submit" id="sub_btn" name="submit" value="发布" class="alt_btn">
 					</div>
 				</footer>
 			</article>

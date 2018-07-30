@@ -55,6 +55,11 @@
     $(function(){
         $('.column').equalHeight();
     });
+	
+    function addSource(){
+		$("#btn_sub").attr("disabled","true");
+		//$('#form1').submit();
+	}
 </script>
 
 </head>
@@ -127,7 +132,7 @@
 				<footer>
 					<div class="submit_link">
 						<input type="hidden" name="id" value="{$data.id|default:''}">
-						<input type="submit" name="submit" value="发布" class="alt_btn">
+						<input type="submit" id="btn_sub" name="submit" value="发布" class="alt_btn" onclick="this.value='发布中...';return addSource();">
 					</div>
 				</footer>
 			</article>

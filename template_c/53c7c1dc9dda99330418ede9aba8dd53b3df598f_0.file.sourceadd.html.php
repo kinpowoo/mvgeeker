@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-07-30 14:17:23
+/* Smarty version 3.1.30, created on 2018-07-30 16:17:21
   from "C:\xampp\htdocs\tpl\back\sourceadd.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b5ead7307b541_00276503',
+  'unifunc' => 'content_5b5ec991d66f03_82459981',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '53c7c1dc9dda99330418ede9aba8dd53b3df598f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\tpl\\back\\sourceadd.html',
-      1 => 1532931437,
+      1 => 1532938639,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./leftmenu.html' => 1,
   ),
 ),false)) {
-function content_5b5ead7307b541_00276503 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b5ec991d66f03_82459981 (Smarty_Internal_Template $_smarty_tpl) {
 echo '<?php
 	';?>date_default_timezone_set("Asia/Shanghai");
 <?php echo '?>';?>
@@ -96,6 +96,11 @@ echo '<?php
     $(function(){
         $('.column').equalHeight();
     });
+	
+    function addSource(){
+		$("#btn_sub").attr("disabled","true");
+		//$('#form1').submit();
+	}
 <?php echo '</script'; ?>
 >
 
@@ -181,7 +186,7 @@ echo '<?php
 					<div class="submit_link">
 						<input type="hidden" name="id" value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['data']->value['id'])===null||$tmp==='' ? '' : $tmp);?>
 ">
-						<input type="submit" name="submit" value="发布" class="alt_btn">
+						<input type="submit" id="btn_sub" name="submit" value="发布" class="alt_btn" onclick="this.value='发布中...';this.disabled='true';return addSource();">
 					</div>
 				</footer>
 			</article>
